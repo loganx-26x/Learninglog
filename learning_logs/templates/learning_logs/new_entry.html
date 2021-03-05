@@ -1,0 +1,14 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+<BODY TEXT="#092d07" LINK="#1FOOFF" VLINK= "#000000" ALINK="#000000" BGCOLOR="#17a2b8">
+  <p>
+    <a href="{% url 'learning_logs:topic' topic.id %}"> {{ topic }}</a>
+  </p>
+  <p> Add a new entry:</p>
+  <form action="{% url 'learning_logs:new_entry' topic.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit"> Add entry</button>
+  </form>
+{% endblock content %}
