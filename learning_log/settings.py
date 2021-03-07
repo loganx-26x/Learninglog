@@ -25,10 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5ot$8ky&x4twf@4%gu_kp6w@$0&vr3s$q5!_2_t%u($le+b8#@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('DEBUG') == 'TRUE':
-    DEBUG = True
-elif os.environ.get('DEBUG') == 'FALSE':
-    DEBUG = False
+DEBUG = False
+
 
 ALLOWED_HOSTS = []
 
@@ -70,7 +68,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -136,8 +134,6 @@ USE_TZ = True
 # favicon_project
 
 
-
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Static files (CSS, JavaScript, Images)
@@ -162,3 +158,7 @@ LOGIN_URL = 'users:login'
 import django_heroku
 django_heroku.settings(locals())
 
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
+elif os.environ.get('DEBUG') == 'FALSE':
+    DEBUG = False
