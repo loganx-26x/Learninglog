@@ -14,4 +14,22 @@
 
     <h5><button name="submit" class="btn btn-primary"> Add topic</button></h5>
   </form>
+
+<form action="learning_logs:topics">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      {% for topic in all_topics %}
+        <option>{{ topic }}</option>
+      {% empty %}
+        <option> Wow! Such empty.</option>
+      {% endfor %}
+    </select>
+  </div>
+  <span class="input-group-btn">
+    <button name="submit">Make Public</button>
+    <button name="submit">Make Private</button>
+  </span>
+</form>
+
 {% endblock content %}

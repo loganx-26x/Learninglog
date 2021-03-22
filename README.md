@@ -1,0 +1,1 @@
+Django project from "Python Crash Course"
